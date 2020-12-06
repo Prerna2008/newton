@@ -27,47 +27,17 @@ function setup() {
 	bob3 = new Bob(400,500,25);
 	bob4 = new Bob(450,500,25); 
   bob5 = new Bob(500,500,25); 
-  var options1 = {
-    bodyA:bob1.body,
-    bodyB:platform.body,
-    stiffness:0.04,
-    length:200
-  }
-  rope1=Constaint.create(options1)
-  World.add(world,rope1);
-  var options2 = {
-    bodyA:bob2.body,
-    bodyB:platform.body,
-    stiffness:0.04,
-    length:200
-  }
-  rope2=Constaint.create(options2)
-  World.add(world,rope2);
-  var options3 = {
-    bodyA:bob3.body,
-    bodyB:platform.body,
-    stiffness:0.04,
-    length:200
-  }
-  rope3=Constaint.create(options3)
-  World.add(world,rope3);
-  var options4 = {
-    bodyA:bob4.body,
-    bodyB:platform.body,
-    stiffness:0.04,
-    length:200
-  }
-  rope4=Constaint.create(options4)
-  World.add(world,rope4);
-  var options5 = {
-    bodyA:bob5.body,
-    bodyB:platform.body,
-    stiffness:0.04,
-    length:200
-  }
-  rope5= Constaint.create(options5)
-  World.add(world,rope6);
-}
+  
+  rope1=new rope(bob1.body,platform.body,-bobDiameter*2,0)
+ 
+  rope2=new rope(bob2.body,platform.body,-bobDiameter*2,0)
+
+  rope3=new rope(bob3.body,platform.body,-bobDiameter*2,0)
+  
+  rope4=new rope(bob4.body,platform.body,-bobDiameter*2,0)
+  
+  rope5=new rope(bob5.body,platform.body,-bobDiameter*2,0)
+
 
 function draw() {
   background("green");
@@ -94,7 +64,7 @@ function draw() {
 }
 function keyPressed(){
   if(keyCode===UP_ARROW){
-	Matter.Body.applyForce(paper.body,paper.body.position,{x:-4,y:3})
+	Matter.Body.applyForce(bob1.body,bob1.body.position,{x:-4,y:3})
 }
 if(keyCode===DOWN_ARROW){
 	Matter.Body.applyForce(bob1.body,bob1.body.position,{x:0,y:0})
